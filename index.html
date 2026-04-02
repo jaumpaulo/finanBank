@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./src/css/style.css">
+    <script src="./src/js/script.js" defer></script>
+    <title>FinanBank</title>
+</head>
+<body>
+    <div class="container">
+        <form id="form"> 
+            <div class="card">
+                <div class="buttons-select">
+                    <button class="addOrRemove" id="income" type="button" data-id="1">+ Income</button>
+                    <button class="addOrRemove" id="expense" type="button" data-id="0">- Expense</button>
+                </div>
+                <div class="textfield">
+                    <label for="amount">Amount (R$)</label>
+                    <input type="number" name="amount" id="amount" placeholder="Amount" step="0.01" required>
+                </div>
+                <div class="select-category">
+                    <label for="category">Category</label>
+                    <select name="category" id="category" required>
+                        <option value="" disabled selected hidden>Category</option>
+                        <option value="food">Food & Drinks &#x1F354;</option>
+                        <option value="transport">Transportation &#x1F697;</option>
+                        <option value="entertainment">Entertainment &#x1F3AE;</option>
+                        <option value="work">Work &#x1F4BC;</option>
+                    </select>
+                </div>
+                <div class="textfiel">
+                    <label for="description">Description</label>
+                    <textarea name="description" id="description" placeholder="Description"></textarea>
+                </div>
+                <button class="btn-send" type="submit">Send</button>
+            </div>
+        </form>
+        <div class="total" id="total"></div>
+        <div class="card-extract" id="cardExtract"></div>
+    </div>
+</body>
+</html>
