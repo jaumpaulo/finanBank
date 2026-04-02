@@ -135,8 +135,6 @@
     border-left: 5px solid red;
 }
 
-/* 🔥 Ajustes para telas menores */
-
 @media (max-width: 600px) {
     .card {
         padding: 20px;
