@@ -3,7 +3,7 @@ const addOrRemove = document.querySelectorAll(".addOrRemove")
 const amount = document.getElementById("amount")
 const category = document.getElementById("category")
 const description = document.getElementById("description")
-localStorage.clear()
+
 function formatMoney(value) {
     return new Intl.NumberFormat("pt-BR", {
         style: "currency",
