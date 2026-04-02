@@ -4,8 +4,6 @@ const amount = document.getElementById("amount")
 const category = document.getElementById("category")
 const description = document.getElementById("description")
 
-let totalAmount = 0
-
 function formatMoney(value) {
     return new Intl.NumberFormat("pt-BR", {
         style: "currency",
@@ -61,64 +59,8 @@ form.addEventListener("submit", (event) => {
 
     form.reset()
 
-    accountHistory()
+    reloadAccountHistory()
 })
-
-function accountHistory() {
-    const total = document.getElementById("total")
-    const cardExtract = document.getElementById("cardExtract")
-
-    const data = JSON.parse(localStorage.getItem("transaction")) || []
-    const objectValues = data[data.length - 1]
-
-    const cardContent = document.createElement("div")
-    cardContent.classList.add("extract")
-
-    if (objectValues.type === "1") {
-        cardContent.classList.add("income")
-    } else {
-        cardContent.classList.add("expense")
-    }
-
-    const h1 = document.createElement("h1")
-    const p = document.createElement("p")
-    const p2 = document.createElement("p")
-    const p3 = document.createElement("p")
-
-    const amountValue = parseFloat(objectValues.amount)
-
-    h1.textContent = objectValues.category
-
-    if (objectValues.type === "1") {
-        p.textContent = "deposited: " + formatMoney(amountValue)
-        totalAmount += amountValue
-    } else {
-        p.textContent = "spent: " + formatMoney(amountValue)
-        totalAmount -= amountValue
-    }
-
-    p2.textContent = objectValues.description || "No description"
-    p3.textContent = objectValues.date
-
-    total.textContent = formatMoney(totalAmount)
-
-    cardContent.append(h1, p, p2, p3)
-    cardExtract.appendChild(cardContent)
-
-    const accountStatementValues = {
-        totalAmount: totalAmount,
-        category: objectValues.category,
-        amount: objectValues.amount,
-        description: objectValues.description,
-        date: objectValues.date,
-        type: objectValues.type
-    }
-
-    const dataAccountStatement = JSON.parse(localStorage.getItem("accountStatement")) || []
-    dataAccountStatement.push(accountStatementValues)
-
-    localStorage.setItem("accountStatement", JSON.stringify(dataAccountStatement))
-}
 
 function reloadAccountHistory() {
     const total = document.getElementById("total")
@@ -134,20 +76,20 @@ function reloadAccountHistory() {
         const cardContent = document.createElement("div")
         cardContent.classList.add("extract")
 
+        const amountValue = parseFloat(item.amount)
+
         if (item.type === "1") {
             cardContent.classList.add("income")
-            totalCalc += parseFloat(item.amount)
+            totalCalc += amountValue
         } else {
             cardContent.classList.add("expense")
-            totalCalc -= parseFloat(item.amount)
+            totalCalc -= amountValue
         }
 
         const h1 = document.createElement("h1")
         const p = document.createElement("p")
         const p2 = document.createElement("p")
         const p3 = document.createElement("p")
-
-        const amountValue = parseFloat(item.amount)
 
         h1.textContent = item.category
 
