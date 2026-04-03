@@ -15,10 +15,6 @@ if (!localStorage.getItem("transaction")) {
     localStorage.setItem("transaction", JSON.stringify([]))
 }
 
-if (!localStorage.getItem("accountStatement")) {
-    localStorage.setItem("accountStatement", JSON.stringify([]))
-}
-
 addOrRemove.forEach((buttonclick) => {
     buttonclick.addEventListener("click", () => {
         sessionStorage.setItem("selected", buttonclick.dataset.id)
@@ -53,6 +49,7 @@ form.addEventListener("submit", (event) => {
 
     const data = JSON.parse(localStorage.getItem("transaction")) || []
     data.push(transactionValues)
+
     localStorage.setItem("transaction", JSON.stringify(data))
 
     sessionStorage.removeItem("selected")
@@ -66,11 +63,11 @@ function reloadAccountHistory() {
     const total = document.getElementById("total")
     const cardExtract = document.getElementById("cardExtract")
 
-    const data = JSON.parse(localStorage.getItem("accountStatement")) || []
-
-    let totalCalc = 0
+    const data = JSON.parse(localStorage.getItem("transaction")) || []
 
     cardExtract.innerHTML = ""
+
+    let totalCalc = 0
 
     data.forEach((item) => {
         const cardContent = document.createElement("div")
