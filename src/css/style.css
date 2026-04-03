@@ -45,6 +45,7 @@
 .buttons-select {
     display: flex;
     justify-content: center;
+    align-items: center;
     gap: 10px;
     width: 100%;
 }
@@ -57,7 +58,12 @@
     border: none;
     cursor: pointer;
     font-size: 16px;
+    transition: width 0.5s ease, height 0.5s ease;
 }
+
+/* .buttons-select > button:active {
+    transform: scale(1.05);
+} */
 
 #income {
     background: rgb(22, 164, 22);
@@ -76,6 +82,11 @@
     border-radius: 5px;
     border: 2px solid #ccc;
     font-size: 16px;
+    transition: transform 0.3s ease;
+}
+
+.textfield > input:focus {
+    transform: scale(1.05);
 }
 
 #description {
@@ -86,6 +97,11 @@
     border: 2px solid #ccc;
     resize: none;
     font-size: 16px;
+    transition: transform 0.3s ease;
+}
+
+#description:focus {
+    transform: scale(1.05);
 }
 
 .select-category > select {
@@ -104,6 +120,12 @@
     border-radius: 6px;
     border: 2px solid #ccc;
     font-size: 16px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.btn-send:active {
+    transform: scale(1.05);
 }
 
 .card-extract {
@@ -134,6 +156,7 @@
 .extract.expense {
     border-left: 5px solid red;
 }
+
 
 @media (max-width: 600px) {
     .card {

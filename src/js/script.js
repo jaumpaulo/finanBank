@@ -3,6 +3,26 @@ const addOrRemove = document.querySelectorAll(".addOrRemove")
 const amount = document.getElementById("amount")
 const category = document.getElementById("category")
 const description = document.getElementById("description")
+const income = document.getElementById("income")
+const expense = document.getElementById("expense")
+
+income.addEventListener("click", () => {
+    income.style.width = "270px"
+    income.style.height = "45px"
+
+    expense.style.width = "100%"
+    expense.style.height = "40px"
+    expense.style.maxWidth = "140px"
+})
+
+expense.addEventListener("click", () => {
+    expense.style.width = "270px"
+    expense.style.height = "45px"
+
+    income.style.width = "100%"
+    income.style.height = "40px"
+    income.style.maxWidth = "140px"
+})
 
 function formatMoney(value) {
     return new Intl.NumberFormat("pt-BR", {
@@ -23,6 +43,14 @@ addOrRemove.forEach((buttonclick) => {
 
 form.addEventListener("submit", (event) => {
     event.preventDefault()
+
+    expense.style.width = "100%"
+    expense.style.height = "40px"
+    expense.style.maxWidth = "140px"
+
+    income.style.width = "100%"
+    income.style.height = "40px"
+    income.style.maxWidth = "140px"
 
     const sessionValue = sessionStorage.getItem("selected")
 
