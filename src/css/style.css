@@ -47,6 +47,7 @@
     justify-content: center;
     align-items: center;
     gap: 10px;
+    height: 70px;
     width: 100%;
 }
 
@@ -60,10 +61,6 @@
     font-size: 16px;
     transition: width 0.5s ease, height 0.5s ease;
 }
-
-/* .buttons-select > button:active {
-    transform: scale(1.05);
-} */
 
 #income {
     background: rgb(22, 164, 22);

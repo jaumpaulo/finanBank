@@ -7,21 +7,19 @@ const income = document.getElementById("income")
 const expense = document.getElementById("expense")
 
 income.addEventListener("click", () => {
-    income.style.width = "270px"
     income.style.height = "45px"
+    income.style.background = "#16a416"
 
-    expense.style.width = "100%"
     expense.style.height = "40px"
-    expense.style.maxWidth = "140px"
+    expense.style.background = "#ccc"
 })
 
 expense.addEventListener("click", () => {
-    expense.style.width = "270px"
     expense.style.height = "45px"
+    expense.style.background = "#ff0000"
 
-    income.style.width = "100%"
     income.style.height = "40px"
-    income.style.maxWidth = "140px"
+    income.style.background = "#ccc"
 })
 
 function formatMoney(value) {
